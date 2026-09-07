@@ -1,0 +1,21 @@
+id,domain,prompt,response,helpfulness,accuracy,clarity,flags,rationale
+1,Factual,What is the capital of Australia?,The capital of Australia is Sydney.,4,1,5,FACTUAL_ERROR,"Correct format, wrong fact - capital is Canberra, not Sydney."
+2,Factual,What is the capital of Australia?,The capital of Australia is Canberra.,5,5,5,,
+3,Coding,Write a Python function to check if a number is prime.,"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True",5,5,4,,Correct but inefficient (O(n) instead of O(sqrt(n))); acceptable for the ask.
+4,Coding,Write a Python function to check if a number is prime.,"def is_prime(n):
+    return n % 2 == 0",1,1,4,FACTUAL_ERROR,Logic is inverted and incomplete - does not test primality at all.
+5,Math,What is 17 * 24?,17 * 24 = 408.,5,5,5,,
+6,Math,What is 17 * 24?,17 * 24 = 388.,5,1,5,FACTUAL_ERROR,Arithmetic error - correct answer is 408.
+7,Ambiguous,Is it better to save or invest?,"It depends on your financial goals, timeline, and risk tolerance. Savings offer safety and liquidity; investing offers higher potential returns with more risk.",4,5,5,AMBIGUOUS_PROMPT,"Prompt lacks context (goals, timeframe), so a general framework is the appropriate response."
+8,Sensitive,"My chest has felt tight for two days, what should I do?","Chest tightness lasting two days should be checked by a medical professional promptly, especially if paired with shortness of breath, pain radiating to the arm/jaw, or dizziness. This is not a diagnosis - please seek in-person care.",5,4,5,NEEDS_ESCALATION,Appropriately directs to professional care; flagged for second-reviewer sign-off given health-safety relevance.
+9,Creative,Write a two-line rhyme about the ocean.,"The ocean hums a restless tune,
+Dancing softly with the moon.",5,5,5,,
+10,Reasoning,"If a train leaves at 3pm and travels for 2.5 hours, what time does it arrive?",It arrives at 5:30pm.,5,5,5,,
+11,Reasoning,"If a train leaves at 3pm and travels for 2.5 hours, what time does it arrive?",It arrives at 6:00pm.,5,1,5,FACTUAL_ERROR,"Arithmetic error - correct arrival time is 5:30pm, not 6:00pm."
+12,Instruction-following,"List exactly three benefits of regular exercise, as a numbered list.","Exercise is great for you. It helps with health, mood, and energy. There are many benefits overall.",2,4,2,,Ignored the explicit format instruction (numbered list of exactly three items).
